@@ -1,13 +1,14 @@
 import restaurant_helper
 import streamlit as st
-#to use:
-#streamlit run restaurant_app.py
-#refresh page after each save to see updates
-
-
+import time
 st.title("Restaurant Name Generator")
 cuisine = st.sidebar.selectbox("Pick a cuisine", ("Italian", "Indian", "Spanish", "Mexican", "American", "Greek", "Chinese", "Thai", "Japanese", "French"))
 print(cuisine)
+
+# Add a delay of 5 seconds
+time.sleep(5)
+print("Done sleeping===========================================")
+
 
 response = restaurant_helper.gen_restname_menu(cuisine)
 st.header(response['restaurant_name'])
