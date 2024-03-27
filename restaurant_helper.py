@@ -37,14 +37,14 @@ def gen_restname_menu(cuisine):
         output_variables = ['restaurant_name', 'menu_items']
         )
 
-    response = chain({'cuisine' : "New American"})
+    response = chain({'cuisine' : cuisine})
     return response
 from io import BytesIO
 
 def gen_item_image(item):
     prompt_template_images = PromptTemplate(
         input_variables=["item"],
-        template="Generate a prompt to create an image of the {item}. Provide only details pertaining to the plate and the dish.",
+        template="Generate a prompt to create an image of the {item}. Provide only details pertaining to the plate and the dish",
         length=1000  # Set the desired length value here
     )
     chain_image = LLMChain(llm=image_llm, prompt=prompt_template_images)
